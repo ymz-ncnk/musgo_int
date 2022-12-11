@@ -9,7 +9,10 @@ Simply cast `int` to `musgo_int.Int`:
 	buf := make([]byte, musgo_int.Int(n).SizeMUS())
 	musgo_int.Int(n).MarshalMUS(buf)
 	// Unmarshal
-	(*musgo_int.Int)(&n).UnmarshalMUS(buf)
+	_, err := (*musgo_int.Int)(&n).UnmarshalMUS(buf)
+	if err != nil {
+		panic(err)
+	}
 ```
 
 # More info
